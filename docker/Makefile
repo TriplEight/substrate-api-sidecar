@@ -4,11 +4,6 @@ ifneq (,$(wildcard ./.env))
   include .env
   export
 endif
-
-all:
-	echo "test"
-	env
-
 get-chain-statemint:
 	docker-compose -f docker-compose.statemint-chain.yml up
 
@@ -26,7 +21,6 @@ start-polkadot:
 
 start-polkadot-foreground:
 	docker-compose  -f docker-compose.polkadot.yml up
-
 
 copy-polkadot-chain:
 	mkdir -p polkadot-data/polkadot && cp -r statemint-data/polkadot polkadot-data/polkadot
