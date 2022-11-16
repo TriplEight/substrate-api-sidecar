@@ -5,7 +5,7 @@
 
 ## Download Chain
 
-The first thing to do is download a chain archive. YOu can do this using one or two commands:
+The first thing to do is download a chain archive. YOu can do this using one of two commands:
 
 
 ```
@@ -15,7 +15,7 @@ make get-chain-statemint
 and
 
 ```
-make get-chain-statemint
+make get-chain-polkadot
 ```
 
 Note that using `get-chain-statemint` will download both polkadot and statemint databases.
