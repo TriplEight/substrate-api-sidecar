@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  polkadot-solo-chain:
+    container_name: polkadot-chain
+    image: google/cloud-sdk:latest
+    volumes:
+      - ./polkadot-data:/polkadot
+    command: sh -c "mkdir -p /polkadot/polkadot/chains/polkadot/db && gsutil -m cp -r ${POLKADOT_BACKUP}/* /polkadot/polkadot/chains/polkadot/db/ && chown -R 1000 /polkadot/polkadot/chains/polkadot"
+
