@@ -1,15 +1,15 @@
-version: "3.8"
+version: "2.2"
 services:
   statemint-chain:
     container_name: statemint-chain
     image: google/cloud-sdk:latest
     volumes:
       - ./statemint-data:/polkadot
-    command: sh -c "mkdir -p /polkadot/chains/statemint/db && gsutil -m cp -r ${STATEMINT_BACKUP}/* /polkadot/chains/statemint/db/ && chown -R 10000 /polkadot/chains/statemint"
+    command: sh -c "mkdir -p /polkadot/chains/statemint/db && gsutil -m cp -r ${STATEMINT_BACKUP_LOCATION}/`curl ${STATEMINT_BACKUP_META}`* /polkadot/chains/statemint/db/ && chown -R 10000 /polkadot/chains/statemint"
   polkadot-chain:
     container_name: polkadot-chain
     image: google/cloud-sdk:latest
     volumes:
       - ./statemint-data:/polkadot
-    command: sh -c "mkdir -p /polkadot/polkadot/chains/polkadot/db && gsutil -m cp -r ${POLKADOT_BACKUP}/* /polkadot/polkadot/chains/polkadot/db/ && chown -R 10000 /polkadot/polkadot/chains/polkadot"
+    command: sh -c "mkdir -p /polkadot/polkadot/chains/polkadot/db && gsutil -m cp -r ${POLKADOT_BACKUP_LOCATION}/`curl ${POLKADOT_BACKUP_META}`* /polkadot/polkadot/chains/polkadot/db/ && chown -R 10000 /polkadot/polkadot/chains/polkadot"
 
