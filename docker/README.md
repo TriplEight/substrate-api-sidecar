@@ -1,5 +1,11 @@
 # docker-compose scripts for polkadot and statemint
 
+# Testing Hardware Prerequisites 
+
+4 x modern CPUs
+16g of memory
+500G of space
+
 
 ## Usage 
 
