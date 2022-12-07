@@ -1,0 +1,9 @@
+version: "2.2"
+services:
+  kusama-solo-chain:
+    container_name: kusama-chain
+    image: google/cloud-sdk:latest
+    volumes:
+      - ./kusama-data:/polkadot
+    command: sh -c "mkdir -p /polkadot/.local/share/polkadot/chains/ksmcc3/db && gsutil -m cp -r ${KUSAMA_BACKUP_LOCATION}/`curl ${KUSAMA_BACKUP_META}`* /polkadot/.local/share/polkadot/chains/ksmcc3/db && chown -R 10000 /polkadot/.local/share/polkadot/chains/"
+
