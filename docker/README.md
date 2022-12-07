@@ -63,9 +63,8 @@ sys     0m11.453s
 
 ## Start a chain
 
-You can start a chain using the commands `make start-statemint` ,this will daemonise the process. To start in the foreground run: `make start-statemint-foreground`. 
+You can start a chain using the commands `make start-statemint` or `make start-statemine` ,this will daemonise the process. To start in the foreground run: `make start-statemint-foreground`. 
 
-The same commands (`start-polkadot` and `start-polkadot-foreground` exist for polkadot). 
 
 Example with statemint, almost fully synced on both chains:
 ```
