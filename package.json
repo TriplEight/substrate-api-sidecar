@@ -22,8 +22,14 @@
   "bugs": {
     "url": "https://github.com/paritytech/substrate-api-sidecar/issues"
   },
+  "pkg": {
+    "assets": [
+      "node_modules/**/*"
+			        ]
+  },
   "scripts": {
     "build": "substrate-exec-rimraf build/ && substrate-exec-tsc && echo Build Finished",
+    "build:binary": " substrate-exec-rimraf build && yarn build && pkg --out-path bin . --targets node14-linux-x64",
     "build:calc": "bash ./calc/build.sh",
     "build:docker": "docker build -t substrate-api-sidecar .",
     "build:docs": "(cd docs && yarn && yarn build)",
@@ -64,6 +70,9 @@
     "express-winston": "^4.2.0",
     "http-errors": "^2.0.0",
     "lru-cache": "^7.13.1",
+    "nexe": "^4.0.0-rc.1",
+    "pkg": "^5.8.0",
+    "rimraf": "^3.0.2",
     "rxjs": "^7.5.6",
     "winston": "^3.8.1"
   },
