@@ -1,0 +1,14 @@
+version: "2.2"
+services:
+  statemint-chain:
+    container_name: chain 
+    image: node:nodejs-gsutil
+    user: root
+    working_dir: /root
+    volumes:
+      - ./chain-data:/polkadot
+      - ./index.js:/root/index.js
+      - ./node_modules:/root/node_modules
+      - ./.env:/root/.env
+    command: "node /root/index.js"
+
