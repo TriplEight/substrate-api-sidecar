@@ -1,4 +1,4 @@
-version: "3.8"
+version: "2.2"
 services:
   polkadot:
     container_name: polkadot
@@ -6,8 +6,8 @@ services:
     user: ${UID}
     volumes:
       - ./chain-data:/polkadot
-     ports:
-       - "9944:9944"
+    ports:
+      - "9944:9944"
     command: '--chain polkadot --unsafe-ws-external --rpc-cors=all -d /polkadot --no-hardware-benchmarks'
 
   sidecar:
