@@ -1,0 +1,19 @@
+version: "2.2"
+services:
+  polkadot:
+    container_name: statemine 
+    image: paritypr/polkadot-parachain-debug:${POLKADOT_PARACHAIN_VERSION}
+    user: "10000"
+    volumes:
+      - ./statemine-data:/polkadot
+    ports:
+      - "9944:9944"
+    command: '--chain statemine --unsafe-ws-external --rpc-cors=all -d /polkadot --no-hardware-benchmarks'
+
+  sidecar:
+    image: docker.io/parity/substrate-api-sidecar:${SIDECAR_VERSION}
+    read_only: true
+    ports:
+      - "8081:8080"
+    environment:
+      SAS_SUBSTRATE_URL: ws://statemine:9944

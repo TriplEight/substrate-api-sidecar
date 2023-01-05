@@ -1,0 +1,8 @@
+version: "2.2"
+services:
+  statemine-chain:
+    container_name: statemine-chain
+    image: google/cloud-sdk:latest
+    volumes:
+      - ./statemine-data:/polkadot
+    command: sh -c "mkdir -p /polkadot/chains/statemine/db && gsutil -m cp -r ${STATEMINE_BACKUP_LOCATION}/`curl ${STATEMINE_BACKUP_META}`* /polkadot/chains/statemine/db && chown -R 10000 /polkadot/chains/statemine"
